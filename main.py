@@ -18,7 +18,7 @@ llm = ChatGroq(
 )
 
 # Load PDF
-loader = PyPDFLoader("ResumeHam.pdf")
+loader = PyPDFLoader("YourResume.pdf")
 documents = loader.load()
 
 # Split
@@ -44,7 +44,7 @@ retriever = vectorstore.as_retriever()
 
 # Prompt
 prompt_template = """
-You are a resume assistant for Hamsavardhini B.
+You are a resume assistant for XXX.
 
 Answer ONLY from the resume context.
 If answer is not present, say:
@@ -73,7 +73,7 @@ qa_chain = RetrievalQA.from_chain_type(
     chain_type_kwargs={"prompt": PROMPT}
 )
 while True:
-    query = input("\nAsk about Hamsa: ")
+    query = input("\nAsk Question: ")
 
     if query.lower() == "exit":
         break
